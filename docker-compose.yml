@@ -1,0 +1,16 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  feedback-dashboard:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+      - feedback_data:/app/
+    environment:
+      - STREAMLIT_SERVER_HEADLESS=true
+
+volumes:
+  feedback_data:
